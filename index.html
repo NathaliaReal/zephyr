@@ -413,7 +413,12 @@ textarea{resize:vertical;min-height:60px}
       </div>
 
       <div id="src-agent" role="tabpanel" aria-labelledby="srcA" class="panel" style="display:flex;flex-direction:column;gap:16px">
-        <div class="tip" style="border-radius:var(--r)"><h3>Novedad · el agente ya puede publicar directo a Zephyr</h3><p>Cuando la historia tiene llave de Jira y el agente tiene configurada la integración, ya no hace falta importar nada a mano: en el mismo turno en que diseña los casos, los crea directamente en Zephyr por API (carpeta por dominio de prueba, pasos y vínculo con la historia), siempre como <b>Draft</b> para que el QA Lead los revise. El <b>CSV</b> y el <b>Excel corporativo</b> se siguen generando igual, como respaldo y para quien necesite importarlos a mano.</p></div>
+        <div style="padding:16px 18px;border-left:3px solid var(--accent);background:var(--surface);border-radius:0 var(--r) var(--r) 0;display:flex;flex-direction:column;gap:8px">
+          <div class="eyebrow" style="margin:0">Novedad</div>
+          <h3 style="margin:0">El agente ya puede publicar directo a Zephyr</h3>
+          <p>Cuando la historia tiene llave de Jira y el agente tiene la integración configurada, ya no hace falta importar nada a mano: en el mismo turno en que diseña los casos, los crea directamente en Zephyr por API (carpeta por dominio de prueba, pasos y vínculo con la historia), siempre como <b>Draft</b> para que el QA Lead los revise.</p>
+          <p class="muted" style="font-size:.9rem">El CSV y el Excel corporativo se siguen generando igual, como respaldo y para quien necesite importarlos a mano.</p>
+        </div>
         <p>La skill <span class="mono">diseno-casos-prueba</span> del agente entrega dos archivos: un <b>CSV</b> y un <b>Excel corporativo</b>. Si no hubo publicación automática, a Zephyr se sube <b>el CSV</b>. El Excel queda como respaldo y para revisión.</p>
         <div class="legend">
           <div><span class="st st-pass">1 fila = 1 caso</span>El CSV del agente trae cada caso en una sola fila. No hay que armar filas por paso.</div>
