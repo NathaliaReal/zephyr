@@ -235,8 +235,88 @@ textarea{resize:vertical;min-height:60px}
 .feedback{font-size:.95rem;min-height:1.5em}
 .q-nav{display:flex;justify-content:space-between;align-items:center;gap:10px}
 
+/* certificado */
+.certificate{position:relative;overflow:hidden;isolation:isolate;width:100%;max-width:780px;margin:0 auto;text-align:center;color:#FFFFFF;
+  background:radial-gradient(120% 140% at 105% -10%, rgba(255,63,166,.20) 0%, transparent 55%),radial-gradient(90% 110% at -5% 115%, rgba(255,63,166,.12) 0%, transparent 55%),#0A0A0A;
+  border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:clamp(34px,6vw,60px) clamp(22px,5.5vw,56px);
+  box-shadow:0 1px 2px rgba(0,0,0,.4),0 28px 56px -24px rgba(255,63,166,.38)}
+.certificate::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:84px;height:2px;background:#FF3FA6}
+.cert-dots{position:absolute;inset:0;z-index:0;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.055) 1px,transparent 1px);background-size:16px 16px;-webkit-mask-image:radial-gradient(65% 55% at 50% 15%,black,transparent 75%);mask-image:radial-gradient(65% 55% at 50% 15%,black,transparent 75%)}
+.cert-top,.cert-bottom{position:relative;z-index:1}
+.cert-course{font:700 12px var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.cert-brand{font-family:var(--f-mono);font-size:16px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-top:14px}
+.cert-kicker{font-family:var(--f-mono);font-size:16px;letter-spacing:.2em;text-transform:uppercase;color:#FF3FA6;margin-top:14px}
+.cert-name{font-family:var(--f-display);font-weight:700;font-size:clamp(28px,4.4vw,46px);line-height:1.1;margin-top:40px;color:#FFFFFF;overflow-wrap:anywhere}
+.cert-body{margin:30px auto 0;color:rgba(255,255,255,.66);font-size:15px;line-height:1.7;max-width:52ch}
+.cert-body b{color:#FFFFFF}
+.cert-score{display:inline-flex;flex-direction:column;align-items:center;gap:4px;margin-top:22px;padding:10px 26px;border-radius:12px;border:1px solid rgba(255,63,166,.4);background:rgba(255,63,166,.09)}
+.cert-score .l{font-family:var(--f-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.cert-score .v{font-family:var(--f-mono);font-size:15px;font-weight:600;color:#FFFFFF;font-variant-numeric:tabular-nums}
+.cert-bottom{margin-top:34px}
+.cert-meta{display:flex;justify-content:center;border-top:1px solid rgba(255,255,255,.1);padding-top:20px}
+.cert-meta>div{flex:1;max-width:220px;padding:0 16px;border-left:1px solid rgba(255,255,255,.08)}
+.cert-meta>div:first-child{border-left:0}
+.cert-meta .l{font-family:var(--f-mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.cert-meta .v{font-family:var(--f-mono);font-size:12.5px;color:rgba(255,255,255,.88);margin-top:6px}
+.cert-meta .vn{font-family:var(--f-display);font-style:italic;font-weight:600;font-size:15px;color:#FFFFFF;margin-top:6px}
+.cert-meta .r{font-size:10px;color:rgba(255,255,255,.45);margin-top:2px}
+.cert-disc{margin:16px auto 0;font-size:10.5px;line-height:1.55;color:rgba(255,255,255,.42);max-width:62ch}
+.cert-seal{position:absolute;right:20px;bottom:20px;width:86px;height:86px;z-index:1}
+.cert-seal svg{width:100%;height:100%;filter:drop-shadow(0 6px 14px rgba(255,63,166,.45))}
+@media (max-width:600px){.cert-meta{flex-direction:column;gap:14px}.cert-meta>div{border-left:0;max-width:none;padding:0}.cert-seal{position:static;margin:20px auto 0}}
+@media print{
+  @page{size:landscape;margin:.35in}
+  body *{visibility:hidden}
+  .certificate,.certificate *{visibility:visible}
+  .certificate{position:fixed;inset:0;max-width:none;border-radius:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+.cert-form-wrap{max-width:440px;margin:0 auto;display:flex;flex-direction:column;gap:12px;text-align:center}
+.cert-form-wrap input{text-align:center;font-family:var(--f-display);font-size:18px;padding:12px}
+.cert-form-wrap input.err{border-color:var(--fail)}
+
+/* candado de acceso */
+#lock{position:fixed;inset:0;z-index:999;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:24px}
+.lock-card{max-width:420px;width:100%;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:32px 28px;display:flex;flex-direction:column;gap:14px;text-align:center;box-shadow:var(--shadow)}
+.lock-card .icon{font-size:28px}
+.lock-card h2{font-size:1.4rem}
+.lock-card p{color:var(--muted);font-size:.95rem}
+.lock-card input{text-align:center;font-family:var(--f-mono);letter-spacing:.04em}
+.lock-card input.err{border-color:var(--fail)}
+.lock-err{min-height:1.2em;font-size:.85rem;color:var(--fail)}
+
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
+
+<div id="lock">
+  <div class="lock-card">
+    <div class="icon">🔒</div>
+    <h2>Acceso al curso</h2>
+    <p>Este curso es de acceso restringido. Ingresa la clave que te compartieron para continuar.</p>
+    <input id="lockInput" type="text" placeholder="Clave de acceso" autocomplete="off" autocapitalize="off" spellcheck="false">
+    <div class="lock-err" id="lockErr"></div>
+    <button class="btn" type="button" id="lockBtn">Ingresar</button>
+  </div>
+</div>
+<script>
+(function(){
+  var CODE = 'ZEPHYR-2026';
+  var lock = document.getElementById('lock');
+  var input = document.getElementById('lockInput');
+  var err = document.getElementById('lockErr');
+  function tryUnlock(){
+    var v = input.value.trim().toUpperCase();
+    if(v === CODE && v !== ''){
+      lock.style.display = 'none';
+    } else {
+      err.textContent = 'Clave incorrecta. Verifica con quien te la compartió e inténtalo de nuevo.';
+      input.classList.remove('err'); void input.offsetWidth; input.classList.add('err');
+    }
+  }
+  document.getElementById('lockBtn').addEventListener('click', tryUnlock);
+  input.addEventListener('keydown', function(e){ if(e.key==='Enter') tryUnlock(); });
+  input.focus();
+})();
+</script>
 
 <div id="app">
   <div class="credit-strip">Contenido elaborado por Nathalia Real · QA Tech Leader</div>
@@ -598,13 +678,61 @@ textarea{resize:vertical;min-height:60px}
     <!-- M7 -->
     <section id="m7">
       <div class="eyebrow"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8.5"/><path d="M9.5 9.5a2.5 2.5 0 114 2c-.9.6-1.5 1.1-1.5 2.2"/><circle cx="12" cy="17" r=".6" fill="currentColor"/></svg></span>Módulo 08</div>
-      <h2>Práctica 4 · Quiz final</h2>
+      <h2>Práctica 4 · Quiz final y certificado</h2>
       <div class="quiz" id="quiz" aria-live="polite">
         <div class="q-count" id="qCount"></div>
         <div class="q-text" id="qText"></div>
         <div class="answers" id="qAns"></div>
         <div class="feedback" id="qFb"></div>
         <div class="q-nav"><span class="muted" id="qScore"></span><button class="btn" id="qNext" type="button" hidden>Siguiente</button></div>
+      </div>
+
+      <div class="quiz" id="certForm" hidden>
+        <div class="eyebrow">Último paso</div>
+        <h2 style="font-size:1.4rem">¿A nombre de quién generamos el certificado?</h2>
+        <p class="muted">Escribe tu nombre tal como quieres que aparezca.</p>
+        <div class="field"><label for="certName">Nombre completo</label><input id="certName" type="text" maxlength="60" autocomplete="name" placeholder="Nombre y apellido"></div>
+        <div class="cover-cta">
+          <button class="btn ghost" type="button" id="certBack">Volver al resultado</button>
+          <button class="btn" type="button" id="certMake">Generar certificado</button>
+        </div>
+      </div>
+
+      <div id="certWrap" hidden style="display:flex;flex-direction:column;gap:18px">
+        <div class="certificate" id="certNode">
+          <div class="cert-dots" aria-hidden="true"></div>
+          <div class="cert-top">
+            <div class="cert-course">Curso interactivo · Gestión de casos de prueba</div>
+            <div class="cert-brand">Zephyr desde Cero · Test Management en Jira</div>
+            <div class="cert-kicker">Certificado de finalización</div>
+            <div class="cert-name" id="cCertName"></div>
+            <p class="cert-body">Completó satisfactoriamente el curso <b>Zephyr desde Cero</b>, que cubre la carga de casos de prueba (manual y por CSV), la ejecución en ciclos, el cambio de estado, la evidencia y la trazabilidad en Jira.</p>
+            <div class="cert-score"><span class="l">Quiz final</span><span class="v" id="cScore"></span></div>
+          </div>
+          <div class="cert-bottom">
+            <div class="cert-meta">
+              <div><div class="l">Autoría</div><div class="vn">Nathalia Real Bustos</div><div class="r">QA Tech Leader</div></div>
+              <div><div class="l">Fecha</div><div class="v" id="cDate"></div></div>
+              <div><div class="l">Identificador</div><div class="v" id="cId"></div></div>
+            </div>
+            <p class="cert-disc">Certificado de estudio generado por el curso Zephyr desde Cero. No constituye una certificación oficial de SmartBear.</p>
+          </div>
+          <div class="cert-seal" aria-hidden="true"><svg viewBox="0 0 120 120">
+            <defs>
+              <path id="sealArc" d="M 60,60 m -49,0 a 49,49 0 1,1 98,0 a 49,49 0 1,1 -98,0"/>
+              <radialGradient id="sealFill" cx="50%" cy="40%" r="68%"><stop offset="0%" stop-color="#FF8AC6"/><stop offset="55%" stop-color="#FF3FA6"/><stop offset="100%" stop-color="#8A1256"/></radialGradient>
+            </defs>
+            <circle cx="60" cy="60" r="35" fill="url(#sealFill)"/>
+            <circle cx="60" cy="60" r="35" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1"/>
+            <path d="M46 61l10 10 20-23" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            <text font-size="8" letter-spacing="2.2" fill="#FF3FA6" font-family="IBM Plex Mono, monospace"><textPath href="#sealArc" startOffset="1%" id="sealTxt">QA · TEST MANAGEMENT · 2026 ·</textPath></text>
+          </svg></div>
+        </div>
+        <p class="muted" id="certTip" style="text-align:center">Para guardarlo, toma una captura de pantalla del certificado.</p>
+        <div class="cover-cta" style="justify-content:center">
+          <button class="btn ghost" type="button" id="certEdit">Cambiar nombre</button>
+          <button class="btn" type="button" id="certPrint" hidden>Imprimir / PDF</button>
+        </div>
       </div>
     </section>
   </main>
@@ -950,9 +1078,45 @@ textarea{resize:vertical;min-height:60px}
   function finish(){mark('quiz');document.getElementById('qCount').textContent='Resultado';
     document.getElementById('qText').textContent=sc+' de '+Q.length+(sc>=5?' · ¡Ya sabes usar Zephyr!':sc>=3?' · Vas bien, repasa los módulos 02 y 05':' · Vuelve a revisar los módulos y repite');
     document.getElementById('qAns').innerHTML='';document.getElementById('qFb').textContent='';
-    const nx=document.getElementById('qNext');nx.textContent='Repetir quiz';const r=()=>{nx.removeEventListener('click',r);qi=0;sc=0;showQ();bindNext();};nx.addEventListener('click',r);}
+    const nx=document.getElementById('qNext');nx.textContent='Repetir quiz';const r=()=>{nx.removeEventListener('click',r);qi=0;sc=0;showQ();bindNext();};nx.addEventListener('click',r);
+    let certBtn=document.getElementById('qCertBtn');
+    if(!certBtn){certBtn=document.createElement('button');certBtn.type='button';certBtn.id='qCertBtn';certBtn.className='btn';certBtn.style.marginTop='4px';certBtn.textContent='Generar mi certificado';document.getElementById('quiz').appendChild(certBtn);}
+    certBtn.onclick=()=>{
+      document.getElementById('quiz').hidden=true;
+      const f=document.getElementById('certForm');f.hidden=false;
+      document.getElementById('certName').value=certState.name;document.getElementById('certName').focus();
+    };
+  }
   bindNext();
   showQ();
+
+  // certificado
+  const certState={name:'',id:''};
+  function certBack(){document.getElementById('certForm').hidden=true;document.getElementById('quiz').hidden=false;}
+  function makeCert(){
+    const inp=document.getElementById('certName'),v=inp.value.trim();
+    if(!v){inp.classList.add('err');inp.focus();return;}
+    inp.classList.remove('err');
+    if(v!==certState.name||!certState.id){
+      const base=v.normalize('NFD').replace(/[^A-Za-z0-9]/g,'').toUpperCase().slice(0,4).padEnd(4,'X');
+      certState.id='ZEP-'+base+'-'+Date.now().toString(36).toUpperCase().slice(-5);
+    }
+    certState.name=v;
+    const M=['ENE','FEB','MAR','ABR','MAY','JUN','JUL','AGO','SEP','OCT','NOV','DIC'],d=new Date();
+    document.getElementById('cCertName').textContent=v;
+    document.getElementById('cScore').textContent=sc+'/'+Q.length;
+    document.getElementById('cDate').textContent=d.getDate()+' '+M[d.getMonth()]+' '+d.getFullYear();
+    document.getElementById('cId').textContent=certState.id;
+    document.getElementById('sealTxt').textContent='QA · TEST MANAGEMENT · '+d.getFullYear()+' ·';
+    let framed=true;try{framed=window.self!==window.top;}catch(e){}
+    document.getElementById('certPrint').hidden=framed;document.getElementById('certTip').hidden=!framed;
+    document.getElementById('certForm').hidden=true;document.getElementById('certWrap').hidden=false;
+  }
+  document.getElementById('certBack').addEventListener('click',certBack);
+  document.getElementById('certMake').addEventListener('click',makeCert);
+  document.getElementById('certName').addEventListener('keydown',e=>{if(e.key==='Enter')makeCert();});
+  document.getElementById('certEdit').addEventListener('click',()=>{document.getElementById('certWrap').hidden=true;document.getElementById('certForm').hidden=false;document.getElementById('certName').focus();});
+  document.getElementById('certPrint').addEventListener('click',()=>window.print());
 })();
 </script>
 
